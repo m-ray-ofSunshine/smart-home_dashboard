@@ -36,3 +36,18 @@
     transform: rotate(360deg);
   }
 }
+
+.top-panel {
+  height: 20vh;
+  border: 1px solid black;
+}
+
+.calender-panel {
+  height: 60vh;
+  border: 1px solid black;
+}
+
+.bottom-panel {
+  height: 20vh;
+  border: 1px solid black;
+}

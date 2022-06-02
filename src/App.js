@@ -1,23 +1,27 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
+import Calander from "./components/calendar/Calendar";
+import Events from "./components/events/Events";
+import Notes from "./components/notes/Notes";
+import ShoppingList from "./components/shoppingList/ShoppingList";
+import TodaysDate from "./components/todaysDate/TodaysDate";
+import Weather from "./components/weather/Weather";
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <div className="top-panel">
+        <TodaysDate />
+        <Weather />
+        <Events />
+      </div>
+      <div className="calender-panel">
+        <Calander />
+        <Calander />
+      </div>
+      <div className="bottom-panel">
+        <ShoppingList />
+        <Notes />
+      </div>
     </div>
   );
 }
