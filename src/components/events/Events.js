@@ -1,6 +1,7 @@
+import "./Events.css"
 function Events() {
     return ( 
-        <div>
+        <div className="event-wrapper">
             Events
         </div>
      );

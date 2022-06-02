@@ -1,6 +1,7 @@
+import './Weather.css'
 function Weather() {
     return ( 
-        <div>
+        <div className="weather-wrapper">
             WEATHER
         </div>
      );

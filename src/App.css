@@ -39,15 +39,24 @@
 
 .top-panel {
   height: 20vh;
-  border: 1px solid black;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
 }
 
 .calender-panel {
   height: 60vh;
-  border: 1px solid black;
 }
 
 .bottom-panel {
   height: 20vh;
-  border: 1px solid black;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+.daily-info-wrapper {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
 }

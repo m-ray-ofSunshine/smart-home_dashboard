@@ -1,6 +1,7 @@
+import "./ShoppingList.css"
 function ShoppingList() {
     return ( 
-        <div>
+        <div className="shopping-list-wrapper">
             Shopping List
         </div>
      );

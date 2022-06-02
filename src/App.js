@@ -10,8 +10,10 @@ function App() {
   return (
     <div className="App">
       <div className="top-panel">
-        <TodaysDate />
-        <Weather />
+        <div className="daily-info-wrapper">
+          <TodaysDate />
+          <Weather />
+        </div>
         <Events />
       </div>
       <div className="calender-panel">

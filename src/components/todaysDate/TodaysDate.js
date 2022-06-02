@@ -1,6 +1,7 @@
+import "./TodaysDate.css"
 function TodaysDate() {
     return ( 
-        <div>
+        <div className="date-wrapper">
             {new Date().toLocaleDateString()}
         </div>
      );

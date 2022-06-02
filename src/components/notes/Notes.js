@@ -1,6 +1,7 @@
+import "./Notes.css"
 function Notes() {
     return ( 
-        <div>
+        <div className="notes-wrapper">
             Notes
         </div>
      );
