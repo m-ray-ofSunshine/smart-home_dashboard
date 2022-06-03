@@ -2,4 +2,36 @@
     border: 3px solid blue;
     height: 45%;
     margin: 5%;
-}
+    font: 100% system-ui;
+  }
+  .calendar {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+  }
+  
+  .first-day {
+    grid-column-start: 3;
+  }
+  
+  
+  .day-name {
+    background: #eee;
+  }
+
+  .day-number {
+      padding-top: 25px;
+      border: 1px solid black;
+  }
+  
+  h1 {
+    text-align: center;
+  }
+  ol {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+  }
+  li {
+    padding: 2px;
+  }
