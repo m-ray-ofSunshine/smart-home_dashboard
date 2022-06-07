@@ -17,8 +17,8 @@ function App() {
         <Events />
       </div>
       <div className="calender-panel">
-        <Calander />
-        <Calander />
+        <Calander currentMonth={true}/>
+        <Calander currentMonth={false}/>
       </div>
       <div className="bottom-panel">
         <ShoppingList />

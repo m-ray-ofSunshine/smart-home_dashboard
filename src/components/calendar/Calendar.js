@@ -1,19 +1,54 @@
 import "./calendar.css";
 
-function Calander() {
-  return (
-    <div class="calendar-wrapper">
-      <h1>December 2020</h1>
-      <ol class="calendar">
-        <li class="day-name">Sun</li>
-        <li class="day-name">Mon</li>
-        <li class="day-name">Tue</li>
-        <li class="day-name">Wed</li>
-        <li class="day-name">Thu</li>
-        <li class="day-name">Fri</li>
-        <li class="day-name">Sat</li>
+function Calander({ currentMonth }) {
+  const today = new Date();
+  function Month(date) {
+    this.today = date;
+    this.monthName = this.today.toLocaleString("default", { month: "long" });
+    this.lastDayOfMonth = new Date(
+      this.today.getFullYear(),
+      this.today.getMonth() + 1,
+      0
+    ).getDate();
+    this.firstDayOfWeek = new Date(
+      this.today.getFullYear(),
+      this.today.getMonth(),
+      1
+    ).getDay();
+    this.firstDayStyle = {"gridColumnStart": this.firstDayOfWeek,}
+  }
+  const month = new Month(today);
 
-        <li class="first-day day-number">1</li>
+  const nextMonth = new Month(new Date(today.setMonth(today.getMonth() + 1)));
+
+
+  const generateDays = (month) => {
+    let days = [];
+    for (let i = 1; i <= month.lastDayOfMonth; i++) {
+      if(i === 1){
+    days.push(<li id='first-day' className="day-number" style={month.firstDayStyle}>{i}</li>);
+      } else {
+      days.push(<li className="day-number"><p>{i}</p></li>);
+      }
+    }
+    console.log(days);
+   return days;
+  };
+
+  return (
+    <div className="calendar-wrapper">
+      <h1>{currentMonth ? month.monthName : nextMonth.monthName}</h1>
+      <ol className="calendar">
+        <li className="day-name">Sun</li>
+        <li className="day-name">Mon</li>
+        <li className="day-name">Tue</li>
+        <li className="day-name">Wed</li>
+        <li className="day-name">Thu</li>
+        <li className="day-name">Fri</li>
+        <li className="day-name">Sat</li>
+
+      {generateDays(currentMonth ? month : nextMonth)}
+        {/* <li className="first-day day-number">1</li>
 
         <li className="day-number">2</li>
         <li className="day-number">3</li>
@@ -44,9 +79,9 @@ function Calander() {
         <li className="day-number">28</li>
         <li className="day-number">29</li>
         <li className="day-number">30</li>
-        <li className="day-number">31</li>
+        <li className="day-number">31</li>*/}
       </ol>
-    </div>
+    </div> 
   );
 }
 
