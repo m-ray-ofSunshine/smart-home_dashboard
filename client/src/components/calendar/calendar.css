@@ -35,3 +35,11 @@
   li {
     padding: 2px;
   }
+
+  .monthName {
+    font-size: 2em;
+  }
+
+  .currentDay {
+    background-color: rgba(22, 210, 128, 0.308);
+  }
