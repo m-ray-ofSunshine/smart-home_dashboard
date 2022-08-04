@@ -29,6 +29,16 @@ const auth = new google.auth.GoogleAuth({
 
 module.exports = {
     async getAllEvents(req, res) {
+      const today = new Date();
+      const firstDay = new Date(today.setDate(1));
+      const ld = `${today.getFullYear()}, ${today.getMonth() + 1}, 0`
+      const lastDay = new Date(ld);
+      console.log(`First Day: 
+      ~~~~~~~~~~~~~~~~~~~~~~~~~
+      ${firstDay}`);
+      console.log(`Last Day: 
+      ~~~~~~~~~~~~~~~~~~~~~~~~~
+      ${ld}`);
         let result;
         try {
              result = await calendar.events.list(

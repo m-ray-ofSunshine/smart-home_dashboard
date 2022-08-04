@@ -1,13 +1,8 @@
 
-export const getCalendar = () => {
-  try {
+export const getCalendar = async (req, res) => {
+  return await fetch("/api/calendar")
+      .then(res => res.json());
   
-    fetch("/api/calendar")
-      .then((response) => response.json())
-      .then((data) => console.log(data));
-  } catch (error) {
-      console.log(error);
-  }
 };
 
  
