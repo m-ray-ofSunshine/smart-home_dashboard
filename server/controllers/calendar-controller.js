@@ -1,6 +1,6 @@
 const { google } = require("googleapis");
 require("dotenv").config();
-const keyFile = require('../utils/keys.json')
+
 
 const GOOGLE_PRIVATE_KEY = process.env.private_key;
 const GOOGLE_CLIENT_EMAIL = process.env.client_email;
@@ -23,37 +23,31 @@ const calendar = google.calendar({
 });
 
 const auth = new google.auth.GoogleAuth({
-  keyFile: keyFile,
+  keyFile: "./keys.json",
   scopes: SCOPES,
 });
 
+
+
 module.exports = {
-    async getAllEvents(req, res) {
-      const today = new Date();
-      const firstDay = new Date(today.setDate(1));
-      const ld = `${today.getFullYear()}, ${today.getMonth() + 1}, 0`
-      const lastDay = new Date(ld);
-      console.log(`First Day: 
-      ~~~~~~~~~~~~~~~~~~~~~~~~~
-      ${firstDay}`);
-      console.log(`Last Day: 
-      ~~~~~~~~~~~~~~~~~~~~~~~~~
-      ${ld}`);
-        let result;
-        try {
-             result = await calendar.events.list(
-                {
-                  calendarId: GOOGLE_CALENDAR_ID,
-                  timeMin: new Date().toISOString(),
-                  maxResults: 10,
-                  singleEvents: true,
-                  orderBy: "startTime",
-                }
-              );
-            } catch(err) {
-                console.log(err);
-            }
-            res.json(result.data.items)
+  async getAllEvents(req, res) {
+    
+    let result;
+    try {
+      result = await calendar.events.list(
+        {
+          calendarId: GOOGLE_CALENDAR_ID,
+          timeMin: req.params.startDate,
+          timeMax: req.params.endDate,
+          maxResults: 10,
+          singleEvents: true,
+          orderBy: "startTime",
+        }
+        );
+      } catch(err) {
+        console.log(err);
+      }      
+      res.json(result.data.items)
         
       },
 
