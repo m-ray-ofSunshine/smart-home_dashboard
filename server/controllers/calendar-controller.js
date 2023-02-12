@@ -39,7 +39,7 @@ module.exports = {
           calendarId: GOOGLE_CALENDAR_ID,
           timeMin: req.params.startDate,
           timeMax: req.params.endDate,
-          maxResults: 10,
+          maxResults: 250,
           singleEvents: true,
           orderBy: "startTime",
         }

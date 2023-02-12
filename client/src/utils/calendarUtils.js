@@ -1,14 +1,37 @@
+function sortEvents(events, month) {
+  const serializedEvents = events.map(event => {
+    let day = !Object.keys(event.start).length<1 ? new Date(Object.values(event.start)[0]).getDate() : new Date(Object.values(event.start)[0]).getDate() 
+    let month = new Date(Object.values(event.start)[0]).getMonth()
+    return { ...event, "monthDate": day, "monthNum": month }
+  })
+
+  return serializedEvents.filter(event => event.monthNum === month.monthNum)
+}
+
+function getDayText(i, sortedEvents) {
+  let str = i
+  sortedEvents.forEach(event => {
+    if(event.monthDate === i ) {
+      str = `${i} 
+      ${event.summary}`
+    }
+    return str
+  })
+  return str
+}
 
 export const getCalendar = async (startDate, endDate, req, res) => {
   return await fetch(`/api/calendar/${startDate}/${endDate}`)
-  .then(res => res.json())
-  
+    .then(res => res.json())
+
 };
 export function Month(date) {
   //Date format of today
   this.today = date;
   //Month name in long string form
   this.monthName = this.today.toLocaleString("default", { month: "long" });
+  //Month number
+  this.monthNum = this.today.getMonth()
   //last day of month
   this.lastDayOfMonth = new Date(
     this.today.getFullYear(),
@@ -20,50 +43,53 @@ export function Month(date) {
     this.today.getFullYear(),
     this.today.getMonth(),
     1
-    ).getDay();
-    //where the calendar starts
-    this.firstDayStyle = { gridColumnStart: this.firstDayOfWeek + 1 };
-    //first day of month
-    this.firstDateISO = new Date(
-      this.today.getFullYear(),
-      this.today.getMonth(),
-      1
-      ).toISOString();
-    this.lastDateISO = new Date(
-      this.today.getFullYear(),
-      this.today.getMonth() + 1,
-    0
-      ).toISOString();
-  };
-  export const generateDays = (month, currentMonth, events) => {
-    let days = [];
-    for (let i = 1; i <= month.lastDayOfMonth; i++) {
-      if (i === 1) {
-        days.push(
-          <li
+  ).getDay();
+  //where the calendar starts
+  this.firstDayStyle = { gridColumnStart: this.firstDayOfWeek + 1 };
+  //first day of month
+  this.firstDateISO = new Date(
+    this.today.getFullYear(),
+    this.today.getMonth(),
+    1
+  ).toISOString();
+  this.lastDateISO = new Date(
+    this.today.getFullYear(),
+    this.today.getMonth() + 1,
+    1
+  ).toISOString();
+};
+export const generateDays = (month, currentMonth, events) => {
+  const sortedEvents = sortEvents(events, month)
+  let days = [];
+  for (let i = 1; i <= month.lastDayOfMonth; i++) {
+    if (i === 1) {
+      days.push(
+        <li
           key={i}
           id="first-day"
           className="day-number"
           style={month.firstDayStyle}
-          >
-          {i}
+        >
+          {getDayText(i, sortedEvents)}
         </li>
       );
     } else if (currentMonth && month.today.getDate() === i) {
       days.push(
         <li key={i} className="currentDay day-number">
-          <p>{i}</p>
+          <p>{getDayText(i, sortedEvents)}</p>
         </li>
       );
     } else {
       days.push(
         <li key={i} className="day-number">
-          <p>{i}</p>
+          <p>{getDayText(i, sortedEvents)}</p>
         </li>
       );
     }
-  }
-  return days;
+    
+    }
+
+return days;
 };
 
- 
+

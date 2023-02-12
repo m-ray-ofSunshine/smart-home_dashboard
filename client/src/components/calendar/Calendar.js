@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import "./calendar.css";
 import { getCalendar, Month, generateDays } from "../../utils/calendarUtils";
 
-function Calander({ currentMonth }) {
+function Calendar({ currentMonth }) {
   const [events, setEvents] = useState();
 
   
@@ -14,11 +14,11 @@ function Calander({ currentMonth }) {
   
   useEffect(() => {
     const apiCall = async () => {
-      const calEvents = await getCalendar(month.firstDateISO, month.lastDateISO);
+      const calEvents = await getCalendar(month.firstDateISO, nextMonth.lastDateISO);
       setEvents(calEvents);
     };
     apiCall();
-  }, [month.firstDateISO, month.lastDateISO]);
+  }, [month.firstDateISO, nextMonth.lastDateISO]);
   return (
     <div className="calendar-wrapper">
       <button onClick={()=>{console.log(events);}}>search</button>
@@ -41,4 +41,4 @@ function Calander({ currentMonth }) {
   );
 }
 
-export default Calander;
+export default Calendar;

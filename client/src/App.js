@@ -1,5 +1,5 @@
 import "./App.css";
-import Calander from "./components/calendar/Calendar";
+import Calendar from "./components/calendar/Calendar";
 import Events from "./components/events/Events";
 import Notes from "./components/notes/Notes";
 import ShoppingList from "./components/shoppingList/ShoppingList";
@@ -17,8 +17,8 @@ function App() {
         <Events />
       </div>
       <div className="calender-panel">
-        <Calander currentMonth={true}/>
-        <Calander currentMonth={false}/>
+        <Calendar currentMonth={true}/>
+        <Calendar currentMonth={false}/>
       </div>
       <div className="bottom-panel">
         <ShoppingList />
