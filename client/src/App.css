@@ -45,11 +45,11 @@
 }
 
 .calender-panel {
-  height: 60vh;
+  height: 65vh;
 }
 
 .bottom-panel {
-  height: 20vh;
+  height: 15vh;
   display: flex;
   align-items: center;
   justify-content: space-around;

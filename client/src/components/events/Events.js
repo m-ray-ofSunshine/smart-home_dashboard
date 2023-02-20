@@ -1,8 +1,19 @@
 import "./Events.css"
-function Events() {
+import EventDetails from "./EventsDetails";
+
+function Events({events}) {
+        
     return ( 
         <div className="event-wrapper">
-            Events
+            <h2 className="single-grid-row">Events</h2>
+            <ol className="single-grid-row">
+                <li className="row-cell-one grid-header">Summary</li>
+                <li className="row-cell-two grid-header">Time</li>
+                <li className="row-cell-three grid-header">Location</li>
+            </ol>
+            { Array.isArray(events) &&
+            events.slice(0, 5).map((event) => {
+        return <EventDetails key={event.id} event={event}/>})}
         </div>
      );
 }

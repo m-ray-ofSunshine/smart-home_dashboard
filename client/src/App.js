@@ -1,5 +1,7 @@
 import "./App.css";
-import Calendar from "./components/calendar/Calendar";
+import { useState } from "react";
+
+import CalendarContainer from "./components/calendar/Calendar";
 import Events from "./components/events/Events";
 import Notes from "./components/notes/Notes";
 import ShoppingList from "./components/shoppingList/ShoppingList";
@@ -7,6 +9,9 @@ import TodaysDate from "./components/todaysDate/TodaysDate";
 import Weather from "./components/weather/Weather";
 
 function App() {
+  const [events, setEvents] = useState(false);
+
+
   return (
     <div className="App">
       <div className="top-panel">
@@ -14,11 +19,11 @@ function App() {
           <TodaysDate />
           <Weather />
         </div>
-        <Events />
+        <Events events={events}/>
       </div>
       <div className="calender-panel">
-        <Calendar currentMonth={true}/>
-        <Calendar currentMonth={false}/>
+        <CalendarContainer events={events} setEvents={setEvents} currentMonth={true}/>
+        <CalendarContainer events={events} setEvents={setEvents} currentMonth={false}/>
       </div>
       <div className="bottom-panel">
         <ShoppingList />
