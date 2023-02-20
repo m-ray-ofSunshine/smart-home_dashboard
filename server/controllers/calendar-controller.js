@@ -22,12 +22,6 @@ const calendar = google.calendar({
   auth: jwtClient,
 });
 
-const auth = new google.auth.GoogleAuth({
-  keyFile: "./keys.json",
-  scopes: SCOPES,
-});
-
-
 
 module.exports = {
   async getAllEvents(req, res) {

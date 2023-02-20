@@ -1,9 +1,10 @@
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import "./calendar.css";
 import { getCalendar, Month, generateDays } from "../../utils/calendarUtils";
 
-function Calendar({ currentMonth }) {
-  const [events, setEvents] = useState();
+
+
+function CalendarContainer({ events, setEvents, currentMonth }) {
 
   
   const today = new Date();
@@ -18,11 +19,10 @@ function Calendar({ currentMonth }) {
       setEvents(calEvents);
     };
     apiCall();
-  }, [month.firstDateISO, nextMonth.lastDateISO]);
+  }, [setEvents, month.firstDateISO, nextMonth.lastDateISO]);
   return (
     <div className="calendar-wrapper">
-      <button onClick={()=>{console.log(events);}}>search</button>
-      <h1 className="monthName">
+       <h1 className="monthName">
         {currentMonth ? month.monthName : nextMonth.monthName}
       </h1>
       <ol className="calendar">
@@ -34,11 +34,16 @@ function Calendar({ currentMonth }) {
         <li className="day-name">Fri</li>
         <li className="day-name">Sat</li>
 
+      </ol>
+      <ol className="calendar days-grid">
         {events &&
         generateDays((currentMonth ? month : nextMonth), currentMonth, events)}
       </ol>
+      
     </div>
   );
 }
 
-export default Calendar;
+export default CalendarContainer;
+
+

@@ -1,6 +1,14 @@
+
+function handleEventType(event) {
+
+  return !Object.keys(event.start).length < 1 ?
+    new Date(Object.values(event.start)[0]).getDate()+1 :
+    new Date(Object.values(event.start)[0]).getDate()
+}
+
 function sortEvents(events, month) {
   const serializedEvents = events.map(event => {
-    let day = !Object.keys(event.start).length<1 ? new Date(Object.values(event.start)[0]).getDate() : new Date(Object.values(event.start)[0]).getDate() 
+    let day = handleEventType(event)
     let month = new Date(Object.values(event.start)[0]).getMonth()
     return { ...event, "monthDate": day, "monthNum": month }
   })
@@ -9,11 +17,10 @@ function sortEvents(events, month) {
 }
 
 function getDayText(i, sortedEvents) {
-  let str = i
+  let str = [<span key={Math.random() * 1000} className="dayNum">{i}</span>]
   sortedEvents.forEach(event => {
-    if(event.monthDate === i ) {
-      str = `${i} 
-      ${event.summary}`
+    if (event.monthDate === i) {
+      str.push(<span key={Math.random() * 1000} className="event">{event.summary}</span>)
     }
     return str
   })
@@ -76,20 +83,20 @@ export const generateDays = (month, currentMonth, events) => {
     } else if (currentMonth && month.today.getDate() === i) {
       days.push(
         <li key={i} className="currentDay day-number">
-          <p>{getDayText(i, sortedEvents)}</p>
+          {getDayText(i, sortedEvents)}
         </li>
       );
     } else {
       days.push(
         <li key={i} className="day-number">
-          <p>{getDayText(i, sortedEvents)}</p>
+          {getDayText(i, sortedEvents)}
         </li>
       );
     }
-    
-    }
 
-return days;
+  }
+
+  return days;
 };
 
 
