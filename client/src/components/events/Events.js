@@ -1,7 +1,18 @@
 import "./Events.css"
+import {useState, useEffect} from "react"
+import { getNext5Events } from "../../utils/calendarUtils";
 import EventDetails from "./EventsDetails";
 
-function Events({events}) {
+function Events() {
+    const [events, setEvents] = useState()
+
+    useEffect(() => {
+        const apiCall = async () => {
+          const calEvents = await getNext5Events();
+          setEvents(calEvents);
+        };
+        apiCall();
+      }, [setEvents]);
         
     return ( 
         <div className="event-wrapper">

@@ -44,5 +44,24 @@ module.exports = {
       res.json(result.data.items)
         
       },
+  async getNext5Events(req, res) {
+    
+    let result;
+    try {
+      result = await calendar.events.list(
+        {
+          calendarId: GOOGLE_CALENDAR_ID,
+          timeMin: new Date().toISOString(),
+          maxResults: 5,
+          singleEvents: true,
+          orderBy: "startTime",
+        }
+        );
+      } catch(err) {
+        console.log(err);
+      }      
+      res.json(result.data.items)
+        
+      },
 
 }

@@ -32,6 +32,11 @@ export const getCalendar = async (startDate, endDate, req, res) => {
     .then(res => res.json())
 
 };
+export const getNext5Events = async (req, res) => {
+  return await fetch(`/api/calendar/next5`)
+    .then(res => res.json())
+
+};
 export function Month(date) {
   //Date format of today
   this.today = date;

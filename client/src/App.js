@@ -19,7 +19,7 @@ function App() {
           <TodaysDate />
           <Weather />
         </div>
-        <Events events={events}/>
+        <Events/>
       </div>
       <div className="calender-panel">
         <CalendarContainer events={events} setEvents={setEvents} currentMonth={true}/>
