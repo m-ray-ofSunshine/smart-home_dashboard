@@ -4,10 +4,13 @@
   --blue3: #376996;
   --blue4: #1f487e;
   --blue5: #1d3461;
+
+  --gray: #eee;
 }
 
 .App {
   text-align: center;
+  background-color: var(--blue1);
 }
 
 .App-logo {

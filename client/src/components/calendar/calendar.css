@@ -14,14 +14,14 @@
   
   
   .day-name {
-    background: #eee;
+    background: var(--gray);
   }
 
   .dayNum {
     display: flex;
   }
   .event {
-    background-color: #3174ad;
+    background-color: var(--blue3);
     color: #fff;
     border-radius: 5px;
     padding: 2px 5px;

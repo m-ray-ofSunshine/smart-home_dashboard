@@ -1,5 +1,22 @@
 .date-wrapper {
     border: 1px solid red;
     height: 40%;
-    width: 30vw;
+    width: 40vw;
+    background-color: var(--blue5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: sans-serif;
+}
+.date-text{
+    color: #fff;
+    font-size: 40px;
+    
+}
+.weekday-text {
+    font-size: 60px;
+    text-shadow: 3px 3px 0px var(--blue1), 
+    6px 6px 0px var(--blue2), 
+    9px 9px 0px  var(--blue3), 
+    12px 12px 0px var(--blue4);
 }
