@@ -1,5 +1,30 @@
 .weather-wrapper {
     border: 1px solid green;
-    height: 40%;
-    width: 30vw;
+    height: 45%;
+    width: 40vw;
+    background-color: var(--blue3);
+    display: grid;
+    grid-template-columns: 2fr 3fr;
+    grid-template-rows: 1fr 1fr;
+}
+
+.current-temp{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+.hourly-weather{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+}
+.weather-other {
+    display: grid;
+    grid-template-rows: 1fr 1fr 1fr 1fr;
+}
+.temp{
+    display: flex;
+    font-size: large;
+    font-weight: 600;
+    justify-content: center;
+    align-items: center;
 }
