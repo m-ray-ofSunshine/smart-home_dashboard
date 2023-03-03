@@ -1,6 +1,6 @@
 .weather-wrapper {
     border: 1px solid green;
-    height: 45%;
+    height: 55%;
     width: 40vw;
     background-color: var(--blue3);
     display: grid;
@@ -11,15 +11,42 @@
 .current-temp{
     display: grid;
     grid-template-columns: 1fr 1fr;
+    background-color: var(--blue1);
+    margin: 12px 7px;
+    border-radius: 5px;
 }
 
 .hourly-weather{
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
+    grid-gap: 3px;
+    margin: 3px 0px;
+    align-items: center;
+    justify-items: center;
+    
+}
+.daily-weather{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-gap: 3px;
+    margin: 3px 0px;
+    align-items: center;
+    justify-items: center;
+    
 }
 .weather-other {
     display: grid;
     grid-template-rows: 1fr 1fr 1fr 1fr;
+    grid-gap: 3px;
+    margin: 0px 6px;
+    align-items: start;
+    justify-items: center;
+}
+.weather-other>div {
+    background-color: #fff;
+    border-radius: 3px;
+    padding: 1px 5px;
+
 }
 .temp{
     display: flex;
@@ -27,4 +54,25 @@
     font-weight: 600;
     justify-content: center;
     align-items: center;
+}
+.hourly-weather-tile {
+    background-color: var(--blue2);
+    display: grid;
+    grid-template-rows: 1fr 1fr 2fr;
+    align-items: center;
+    padding: 2.5px 0px;
+    width: 75%;
+    border-radius: 5px;
+}
+.daily-weather-tile {
+    background-color: var(--blue2);
+    display: grid;
+    grid-template-rows: 1fr 1fr 2fr;
+    align-items: center;
+    padding: 2.5px 0px;
+    border-radius: 5px;
+   
+}
+.daily-weather-tile-date {
+    padding: 0px 3px;
 }
