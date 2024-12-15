@@ -15,7 +15,7 @@ function EventDetails({ event }) {
         let timeGridCell;
         if(Object.keys(event.start).length > 1 ) {
             // 02/17/2022 6:00-7:00pm
-           
+            
             var startTime = formatter.formatToParts(new Date(event.start.dateTime))
             var endTime = formatter.formatToParts(new Date(event.end.dateTime))
             const dateFormatter = arr => `${arr[2].value}/${arr[4].value}/${arr[6].value}`
