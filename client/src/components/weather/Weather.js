@@ -19,7 +19,7 @@ function Weather() {
         for (let i = 1; i < 4; i++) {
             let data = dailyData[i]
             //console.log(data);
-            let el = <div className='daily-weather-tile'>
+            let el = <div key={i} className='daily-weather-tile'>
                 <div className='daily-weather-tile-date'>{new Intl.DateTimeFormat("en-US", {weekday: "short", month: "short", day: "numeric"}).format(new Date(data.dt*1000))}</div>
                 <div>{Math.round(data.temp.day)} f &#176;</div>
                 <div>{getIconImage(data.weather[0].icon, "35")}</div>
@@ -33,7 +33,7 @@ function Weather() {
         for (let i = 0; i < 3; i++) {
             let data = hourlyData[i*2+2]
            // console.log(data);
-            let el = <div className='hourly-weather-tile'>
+            let el = <div key={i} className='hourly-weather-tile'>
                 <div>{new Intl.DateTimeFormat("en-US", { hour: "numeric"}).format(new Date(data.dt*1000))}</div>
                 <div>{Math.round(data.temp)} f &#176;</div>
                 <div>{getIconImage(data.weather[0].icon, "35")}</div>
@@ -57,7 +57,6 @@ function Weather() {
                 });
         }
     }, [weatherData, lat, long, api_key]);
-    console.log(weatherData);
     return (
         <>
             {weatherData &&
