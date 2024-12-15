@@ -1,16 +1,18 @@
-
+ function reformatDate(str) {
+  var strParts = str.split("-")
+  return `${strParts[1]}/${strParts[2]}/${strParts[0]}`
+ }
 function handleEventType(event) {
-
-  return !Object.keys(event.start).length < 1 ?
-    new Date(Object.values(event.start)[0]).getDate()+1 :
-    new Date(Object.values(event.start)[0]).getDate()
+  return Object.keys(event.start).length > 1 ?
+    new Date(event.start.dateTime) :
+    new Date(reformatDate(event.start.date))
 }
 
 function sortEvents(events, month) {
   const serializedEvents = events.map(event => {
     let day = handleEventType(event)
     let month = new Date(Object.values(event.start)[0]).getMonth()
-    return { ...event, "monthDate": day, "monthNum": month }
+    return { ...event, "monthDate": day.getDate(), "monthNum": month }
   })
 
   return serializedEvents.filter(event => event.monthNum === month.monthNum)
