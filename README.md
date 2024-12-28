@@ -17,6 +17,7 @@ Smart Display is designed to replace a physical whiteboard calendar while introd
 - **Alexa Skill Integration**:
   - Add or remove items from the shopping list and notes using voice commands.
   - Commands synchronize with the app in real-time.
+  - [Lambda repo](https://github.com/m-ray-ofSunshine/smart-home_lambda/blob/master/index.mjs)
 
 ### Voice Commands
 
