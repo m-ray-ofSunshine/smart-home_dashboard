@@ -1,6 +1,5 @@
 .weather-wrapper {
     border: 1px solid green;
-    height: 55%;
     width: 40vw;
     background-color: var(--blue3);
     display: grid;
@@ -9,6 +8,7 @@
 }
 
 .current-temp{
+    height: min-content;
     display: grid;
     grid-template-columns: 1fr 1fr;
     background-color: var(--blue1);
@@ -65,6 +65,7 @@
     border-radius: 5px;
 }
 .daily-weather-tile {
+    height: 65%;
     background-color: var(--blue2);
     display: grid;
     grid-template-rows: 1fr 1fr 2fr;
