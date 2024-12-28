@@ -1,5 +1,37 @@
 .shopping-list-wrapper {
-    border: 1px solid purple;
     height: 80%;
     width: 45vw;
+    background-color: #f0f6ff;
+    border: 1px solid #d0d0d0;
+    border-radius: 8px;
+    padding: 20px;
+    max-width: 600px;
+    font-family: "Arial", sans-serif;
+}
+
+.shopping-list-title {
+    background-color: #3d7eb8;
+    color: white;
+    font-size: 28px;
+    text-align: center;
+    padding: 10px 0;
+    border-radius: 6px;
+    margin-bottom: 20px;
+}
+
+.shopping-list-column-container {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+}
+
+.shopping-list-column {
+    flex: 1,
+}
+
+.shopping-list-list-item {
+    padding: 5px 0;
+    color: #333;
+    font-size: 18px;
+    border-bottom: 1px solid #ddd;
 }
