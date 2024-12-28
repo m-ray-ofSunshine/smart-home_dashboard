@@ -1,70 +1,76 @@
-# Getting Started with Create React App
+# Smart Display
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Purpose
+Smart Display is designed to replace a physical whiteboard calendar while introducing smart functionalities. It dynamically integrates weather forecasts, Google Calendar events, and provides interactive features like a shopping list and notes that can be managed using an Alexa skill.
 
-## Available Scripts
+## Features
 
-In the project directory, you can run:
+### Overview
+- **Dynamic Calendar**: Custom-built calendar dynamically highlights the current day and displays events from a linked Google Calendar, including their times and locations.
+- **Weather Section**: Displays current weather details such as temperature, wind speed, and feels-like temperature, along with:
+  - Sunrise and sunset times.
+  - Hourly forecast for the next 6 hours.
+  - Daily forecast for the next 3 days.
+- **Shopping List and Notes**: 
+  - Managed via the app or Alexa skill.
+  - Shopping list and notes are stored in DynamoDB and accessed through a shared Lambda backend API.
+- **Alexa Skill Integration**:
+  - Add or remove items from the shopping list and notes using voice commands.
+  - Commands synchronize with the app in real-time.
 
-### `npm start`
+### Voice Commands
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+#### Shopping List:
+- **Add Items**:
+  - `Add {ItemName} to the list.`
+  - `Put {ItemName} to my list.`
+- **Remove Items**:
+  - `Remove {ItemName} from my list.`
+  - `Take {ItemName} off my list.`
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+#### Notes:
+- **Add Notes**:
+  - `Add {Note} to the notes.`
+  - `Put {Note} in my notes.`
+- **Remove Notes**:
+  - `Remove {NoteIdentifier} from my notes.`
+  - `Delete {NoteIdentifier} from my notes.`
 
-### `npm test`
+## Technologies Used
+- **Frontend**: React
+- **Backend**: Node.js (shared Lambda backend for both API and Alexa skill)
+- **Database**: DynamoDB for shopping list and notes storage
+- **APIs**:
+  - Google Calendar API
+  - OpenWeatherMap API
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Setup Instructions
 
-### `npm run build`
+### Prerequisites
+- Node.js installed on your machine.
+- API keys for:
+  - Google Calendar
+  - OpenWeatherMap
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### Installation
+1. Clone the repository.
+2. Run `npm install` to install dependencies.
+3. Create a `.env` file and add the following environment variables:
+   - `GOOGLE_CALENDAR_API_KEY`
+   - `OPEN_WEATHER_MAP_API_KEY`
+   - Any other necessary configuration keys.
+4. Start the application locally using `npm start`.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## Deployment
+Currently, Smart Display is not deployed. The planned deployment is to a local home server for local network access.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## Future Enhancements
+- **Spotify Now Playing Widget**: Displaying currently playing music.
+- **Dedicated Smart Display Hardware**: A standalone display device for this application.
 
-### `npm run eject`
+## Infrastructure Diagram
+(TODO: Add a diagram illustrating the relationships between components, including React frontend, Node.js backend, AWS Lambda, DynamoDB, Google Calendar API, and OpenWeatherMap API.)
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+## License
+(TODO: Determine and specify the license under which this project will be shared.)
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
