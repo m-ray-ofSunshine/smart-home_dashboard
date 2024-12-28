@@ -1,5 +1,5 @@
 # Smart Display
-
+![Smart Display](./assets/smart_display.png)
 ## Purpose
 Smart Display is designed to replace a physical whiteboard calendar while introducing smart functionalities. It dynamically integrates weather forecasts, Google Calendar events, and provides interactive features like a shopping list and notes that can be managed using an Alexa skill.
 
