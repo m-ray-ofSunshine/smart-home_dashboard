@@ -5,7 +5,10 @@
   "main": "server/server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node server/server.js",
+    "start": "docker run --name smart-display -p 3000:3000 smart-display",
+    "build": "docker build -t smart-display .",
+    "stop": "docker stop smart-display",
+    "install": "concurrently \"cd server && npm install\" \"cd client && npm install\"",
     "develop": "concurrently \"cd server && npm run watch\" \"cd client && npm start\""
   },
   "repository": {
