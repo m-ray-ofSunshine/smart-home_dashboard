@@ -6,11 +6,16 @@
   --blue5: #1d3461;
 
   --gray: #eee;
+  max-width: 1080px;
+  max-height: 1920;
+  margin: 0 auto; 
 }
 
 .App {
   text-align: center;
   background-color: var(--blue1);
+  max-width: 1080px;
+  max-height: 1920;
 }
 
 .App-logo {
@@ -49,7 +54,7 @@
 }
 
 .top-panel {
-  height: 20vh;
+  height: 17.5vh;
   display: flex;
   align-items: center;
   justify-content: space-around;
@@ -57,16 +62,20 @@
 
 .calender-panel {
   height: 65vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 
 .bottom-panel {
-  height: 15vh;
+  height: 17.5vh;
   display: flex;
   align-items: center;
   justify-content: space-around;
 }
 .daily-info-wrapper {
   height: 95%;
+  width: 47.5%;
   display: flex;
   flex-direction: column;
   justify-content: space-around;

@@ -1,8 +1,7 @@
 .event-wrapper {
     background-color: var(--blue3);
-    border: 1px solid orange;
     height: 90%;
-    width: 50vw;
+    width: 47.5%;
     display: grid;
     grid-template-columns: 1fr 2fr 1fr;
     grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;

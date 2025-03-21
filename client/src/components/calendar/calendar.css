@@ -1,7 +1,6 @@
 .calendar-wrapper {
-    height: 30.4vh;
-    margin: 2.5%;
     font: 100% system-ui;
+    padding: 0 20px;
   }
   .calendar {
     display: grid;

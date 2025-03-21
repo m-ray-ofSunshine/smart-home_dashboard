@@ -1,6 +1,4 @@
 .weather-wrapper {
-    border: 1px solid green;
-    width: 40vw;
     background-color: var(--blue3);
     display: grid;
     grid-template-columns: 2fr 3fr;
