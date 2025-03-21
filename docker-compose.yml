@@ -1,0 +1,11 @@
+services:
+  smart-home-dashboard:
+    build: .
+    container_name: smart-home-dashboard
+    ports:
+      - "3000:3000"
+    restart: unless-stopped
+    networks:
+      - home
+networks:
+  home:

@@ -13,7 +13,6 @@ function EventDetails({ event }) {
             
             let startHour = startDate.getHours();
             const startMinutes = startDate.getMinutes();
-            const startAmPm = startHour >= 12 ? 'pm' : 'am';
             startHour = startHour % 12 || 12;
             
             let endHour = endDate.getHours();
