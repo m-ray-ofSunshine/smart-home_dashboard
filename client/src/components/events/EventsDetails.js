@@ -1,15 +1,4 @@
 function EventDetails({ event }) {
-
-    const formatter = new Intl.DateTimeFormat("en-us", {
-        weekday: "long",
-        year: "numeric",
-        month: "numeric",
-        day: "numeric",
-        hour: "numeric",
-        minute: "numeric",
-        hour12: true,
-      });
-
     
     function handleEventTimeText(event) {
         
