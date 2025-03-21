@@ -12,19 +12,37 @@ function EventDetails({ event }) {
 
     
     function handleEventTimeText(event) {
+        
         let timeGridCell;
         if(Object.keys(event.start).length > 1 ) {
-            // 02/17/2022 6:00-7:00pm
+            const startDate = new Date(event.start.dateTime);
+            const endDate = new Date(event.end.dateTime);
             
-            var startTime = formatter.formatToParts(new Date(event.start.dateTime))
-            var endTime = formatter.formatToParts(new Date(event.end.dateTime))
-            const dateFormatter = arr => `${arr[2].value}/${arr[4].value}/${arr[6].value}`
-            const timeFormatter = arr => `${arr[8].value}:${arr[10].value}${arr[12].value.toLowerCase()}`
-            timeGridCell = `${dateFormatter(startTime)} ${timeFormatter(startTime)}-${timeFormatter(endTime)}`
+            const month = (startDate.getMonth() + 1).toString();
+            const day = startDate.getDate().toString().padStart(2, '0');
+            const year = startDate.getFullYear().toString().slice(-2);
             
+            let startHour = startDate.getHours();
+            const startMinutes = startDate.getMinutes();
+            const startAmPm = startHour >= 12 ? 'pm' : 'am';
+            startHour = startHour % 12 || 12;
+            
+            let endHour = endDate.getHours();
+            const endMinutes = endDate.getMinutes();
+            const endAmPm = endHour >= 12 ? 'pm' : 'am';
+            endHour = endHour % 12 || 12;
+            
+            const startTimeStr = startMinutes === 0 ? `${startHour}` : `${startHour}:${startMinutes.toString().padStart(2, '0')}`;
+            const endTimeStr = endMinutes === 0 ? `${endHour}${endAmPm}` : `${endHour}:${endMinutes.toString().padStart(2, '0')}${endAmPm}`;
+            
+            timeGridCell = `${month}/${day}/${year} ${startTimeStr}-${endTimeStr}`;
         } else {
 
-            timeGridCell = `${new Date(event.start.date).toLocaleDateString("en-US")} All Day Event`
+            const date = new Date(event.start.date);
+            const month = (date.getMonth() + 1).toString();
+            const day = date.getDate().toString().padStart(2, '0');
+            const year = date.getFullYear().toString().slice(-2);
+            timeGridCell = `${month}/${day}/${year}`;
 
         }
         return timeGridCell;
@@ -35,13 +53,9 @@ function EventDetails({ event }) {
 
     return (
         <div className="single-grid-row">
-
-            <p className="row-cell-one">{event.summary}</p>
-            <p className="row-cell-two">{handleEventTimeText(event)}</p>
-            <p className="row-cell-three">{event.location ? event.location: "N/A"}</p>
-
+            <p className="row-cell-one">{handleEventTimeText(event)}</p>
+            <p className="row-cell-two">{event.summary}</p>
         </div>
-
     )
 }
 export default EventDetails;
