@@ -45,7 +45,6 @@ function Weather() {
 
     useEffect(() => {
         const getWeatherData = async () => {
-            console.log(api_key)
             return await fetch(`https://api.openweathermap.org/data/3.0/onecall?lat=${lat}&lon=${long}&units=imperial&exclude=minutely&appid=${api_key}`)
                 .then(res => res.json())
         };

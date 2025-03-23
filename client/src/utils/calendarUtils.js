@@ -30,15 +30,34 @@ function getDayText(i, sortedEvents) {
 }
 
 export const getCalendar = async (startDate, endDate, req, res) => {
-  return await fetch(`/api/calendar/${startDate}/${endDate}`)
-    .then(res => res.json())
-
+  try {
+    const response = await fetch(`backend/api/calendar/${startDate}/${endDate}`);
+    if (!response.ok) {
+      throw new Error(`HTTP error! status: ${response.status}`);
+    }
+    const data = await response.json();
+    return data;
+  } catch (error) {
+    console.error('Error fetching calendar:', error);
+    return []; // Return empty array as fallback
+  }
+  
 };
+
 export const getNext5Events = async (req, res) => {
-  return await fetch(`/api/calendar/next5`)
-    .then(res => res.json())
-
+  try {
+    const response = await fetch(`backend/api/calendar/next5`);
+    if (!response.ok) {
+      throw new Error(`HTTP error! status: ${response.status}`);
+    }
+    const data = await response.json();
+    return data;
+  } catch (error) {
+    console.error('Error fetching next 5 events:', error);
+    return []; // Return empty array as fallback
+  }
 };
+
 export function Month(date) {
   //Date format of today
   this.today = date;
@@ -72,6 +91,7 @@ export function Month(date) {
     1
   ).toISOString();
 };
+
 export const generateDays = (month, currentMonth, events) => {
   const sortedEvents = sortEvents(events, month)
   let days = [];

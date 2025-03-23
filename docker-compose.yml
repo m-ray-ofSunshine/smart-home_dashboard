@@ -5,6 +5,13 @@ services:
     build:
       context: .
       dockerfile: Dockerfile.nginx
+      args:
+        - REACT_APP_LATITUDE=${REACT_APP_LATITUDE}
+        - REACT_APP_LONGITUDE=${REACT_APP_LONGITUDE}
+        - REACT_APP_WEATHER_API_KEY=${REACT_APP_WEATHER_API_KEY}
+        - REACT_APP_AWS_API_URL=${REACT_APP_AWS_API_URL}
+        - REACT_APP_AWS_API_KEY=${REACT_APP_AWS_API_KEY}
+        - REACT_APP_BACKEND_URL=${REACT_APP_BACKEND_URL}
     container_name: smart-home-frontend
     ports:
       - "3001:80"
@@ -16,6 +23,12 @@ services:
     build:
       context: .
       dockerfile: Dockerfile.server
+    environment:
+      - PRIVATE_KEY=${PRIVATE_KEY}
+      - CLIENT_EMAIL=${CLIENT_EMAIL}
+      - CALENDAR_ID=${CALENDAR_ID}
+      - PROJECT_NUMBER=${PROJECT_NUMBER}
+      - PORT=${PORT}
     container_name: smart-home-backend
     ports:
       - "5000:5000"
