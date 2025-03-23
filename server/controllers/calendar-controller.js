@@ -2,11 +2,10 @@ const { google } = require("googleapis");
 require("dotenv").config();
 
 
-const GOOGLE_PRIVATE_KEY = process.env.private_key;
-const GOOGLE_CLIENT_EMAIL = process.env.client_email;
-const GOOGLE_PROJECT_NUMBER = process.env.project_number;
-const GOOGLE_CALENDAR_ID = process.env.calendar_id;
-
+const GOOGLE_PRIVATE_KEY = process.env.PRIVATE_KEY;
+const GOOGLE_CLIENT_EMAIL = process.env.CLIENT_EMAIL;
+const GOOGLE_PROJECT_NUMBER = process.env.PROJECT_NUMBER;
+const GOOGLE_CALENDAR_ID = process.env.CALENDAR_ID
 const SCOPES = ["https://www.googleapis.com/auth/calendar"];
 
 const jwtClient = new google.auth.JWT(

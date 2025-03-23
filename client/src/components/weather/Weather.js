@@ -1,10 +1,9 @@
 import { useEffect, useState } from 'react'
-import env from "react-dotenv";
 import './Weather.css'
 function Weather() {
-    const api_key = env.weather_api_key
-    const lat = env.latitude
-    const long = env.longitude
+    const api_key = process.env.REACT_APP_WEATHER_API_KEY
+    const lat = process.env.REACT_APP_LATITUDE
+    const long = process.env.REACT_APP_LONGITUDE
 
     const [weatherData, setWeatherData] = useState();
 
@@ -46,6 +45,7 @@ function Weather() {
 
     useEffect(() => {
         const getWeatherData = async () => {
+            console.log(api_key)
             return await fetch(`https://api.openweathermap.org/data/3.0/onecall?lat=${lat}&lon=${long}&units=imperial&exclude=minutely&appid=${api_key}`)
                 .then(res => res.json())
         };
