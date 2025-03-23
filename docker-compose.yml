@@ -1,11 +1,27 @@
+version: "3.8"
+
 services:
-  smart-home-dashboard:
-    build: .
-    container_name: smart-home-dashboard
+  frontend:
+    build:
+      context: .
+      dockerfile: Dockerfile.nginx
+    container_name: smart-home-frontend
     ports:
-      - "3001:3000"
+      - "3001:80"
     restart: unless-stopped
     networks:
       - home
+
+  backend:
+    build:
+      context: .
+      dockerfile: Dockerfile.server
+    container_name: smart-home-backend
+    ports:
+      - "5000:5000"
+    restart: unless-stopped
+    networks:
+      - home
+
 networks:
   home:
