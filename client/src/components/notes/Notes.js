@@ -31,7 +31,7 @@ function Notes() {
                     
                 });
             }
-        }, [notesData]);
+        }, [notesData, api_key, api_url]);
         
         
         const columnLimit = 6;

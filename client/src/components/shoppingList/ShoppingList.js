@@ -31,7 +31,7 @@ function ShoppingList() {
                     setTodoListData(data)
                 });
         }
-    }, [todoListData]);
+    }, [todoListData, api_key, todo_list_api_url]);
 
     const columnLimit = 6;
     const columns = [];
