@@ -11,5 +11,17 @@ jobs:
     runs-on: self-hosted
 
     steps:
-      - uses: actions/checkout@v2
-  
+      - name: Navigate to App Directory
+        run: |
+          cd /home/matt/Documents/repos/smart-home_dashboard
+      - name: Pull Latest Code
+        run: |
+          git pull origin main
+
+      - name: Deploy with Docker Compose
+        run: |
+          docker-compose down
+          docker-compose up -d --build
+
+      - name: Clean up Docker images
+        run: docker image prune -af
