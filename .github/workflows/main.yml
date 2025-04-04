@@ -14,9 +14,12 @@ jobs:
       - name: Navigate to App Directory
         run: |
           cd /home/matt/Documents/repos/smart-home_dashboard
+          
       - name: Pull Latest Code
+        env:
+          GITHUB_TOKEN: ${{ secrets.PAT_TOKEN }}
         run: |
-          git pull origin main
+          git pull https://$GITHUB_TOKEN@github.com/m-ray-ofSunshine/smart-home_dashboard.git main
 
       - name: Deploy with Docker Compose
         run: |
