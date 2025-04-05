@@ -16,6 +16,7 @@ services:
     ports:
       - "3001:80"
     restart: unless-stopped
+    env_file: ".env"
     networks:
       - home
 
@@ -33,6 +34,7 @@ services:
     ports:
       - "5000:5000"
     restart: unless-stopped
+    env_file: ".env"
     networks:
       - home
 
