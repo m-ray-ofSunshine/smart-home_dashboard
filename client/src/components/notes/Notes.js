@@ -44,7 +44,7 @@ function Notes() {
 
     return (
         <div className="notes-wrapper notes-container" >
-            <h1 className="notes-title" >Notes for everyone</h1>
+            <h1 className="notes-title" >Notes</h1>
             <div className="notes-columns-container" >
                 {columns.map((column, colIndex) => (
                     <div key={colIndex} className="notes-column" >
