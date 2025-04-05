@@ -16,6 +16,10 @@ jobs:
         # with:
         #   token: ${{ secrets.PAT_TOKEN }}
 
+      - name: Copy env
+        run: |
+          cp ~/Documents/repos/smart-home_dashboard/.env ~/Documents/actions-runners/_work/smart-home_dashboard/smart-home_dashboard
+
       - name: Deploy with Docker Compose
         run: |
           docker-compose down
