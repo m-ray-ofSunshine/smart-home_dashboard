@@ -17,7 +17,6 @@ function ShoppingList() {
                     'x-api-key': api_key
                 }
             };
-            console.log(`${todo_list_api_url}/list`);
             return await fetch(`${todo_list_api_url}/list`, options)
                 .then(res => res.json())
                 .catch(error => {

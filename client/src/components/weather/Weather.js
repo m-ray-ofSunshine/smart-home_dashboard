@@ -17,7 +17,6 @@ function Weather() {
         let dailyArr = [];
         for (let i = 1; i < 4; i++) {
             let data = dailyData[i]
-            //console.log(data);
             let el = <div key={i} className='daily-weather-tile'>
                 <div className='daily-weather-tile-date'>{new Intl.DateTimeFormat("en-US", {weekday: "short", month: "short", day: "numeric"}).format(new Date(data.dt*1000))}</div>
                 <div>{Math.round(data.temp.day)} f &#176;</div>
@@ -31,7 +30,6 @@ function Weather() {
         let hourlyArr = [];
         for (let i = 0; i < 3; i++) {
             let data = hourlyData[i*2+2]
-           // console.log(data);
             let el = <div key={i} className='hourly-weather-tile'>
                 <div>{new Intl.DateTimeFormat("en-US", { hour: "numeric"}).format(new Date(data.dt*1000))}</div>
                 <div>{Math.round(data.temp)} f &#176;</div>

@@ -8,16 +8,10 @@ const app = express();
 
 // Request logging middleware
 app.use((req, res, next) => {
-  console.log(`[${new Date().toISOString()}] ${req.method} ${req.url}`);
-  console.log('Request Headers:', req.headers);
-  console.log('Request Body:', req.body);
   
   // Capture response data
   const oldSend = res.send;
   res.send = function (data) {
-    console.log('Response Body:', data);
-    console.log('Response Headers:', res.getHeaders());
-    console.log('Response Status:', res.statusCode);
     return oldSend.apply(res, arguments);
   };
   
