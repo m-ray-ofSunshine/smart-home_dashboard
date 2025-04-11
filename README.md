@@ -63,8 +63,7 @@ Smart Display is designed to replace a physical whiteboard calendar while introd
 4. Start the application locally using `npm start`.
 
 ## Deployment
-Currently, Smart Display is not deployed. The planned deployment is to a local home server for local network access.
-
+This app is deployed on a local home server. It is hooked up to GitHub Actions so that when a new commit is pushed to main it will pull down the latest code, spin down the existing containers, and build and spin up new containers.
 ## Future Enhancements
 - **Spotify Now Playing Widget**: Displaying currently playing music.
 - **Dedicated Smart Display Hardware**: A standalone display device for this application.
